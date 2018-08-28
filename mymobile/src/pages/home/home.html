@@ -1,16 +1,21 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Student list
     </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="Create()">
+        <ion-icon name="add-circle"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <ion-row>
-    <ion-col col-6 *ngFor="let s of students">
-      Name: {{s.name}}<br />
-      Age: {{s.age}}
-    </ion-col>
-  </ion-row>
+  <ion-list *ngIf="students">
+    <button ion-item *ngFor="let s of students" (click)="Detail(s.id)">
+      <img col-2 item-start src="https://cdn3.iconfinder.com/data/icons/internet-and-web-4/78/internt_web_technology-13-512.png"
+      /> Name: {{s.name}}<br /> Age: {{s.age}}
+    </button>
+  </ion-list>
 </ion-content>

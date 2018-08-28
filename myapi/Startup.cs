@@ -47,8 +47,9 @@ namespace myapi
                 app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
             }
-            app.UseCors(builder => 
+            app.UseCors(builder =>
                 builder.WithOrigins("*")
+                .AllowAnyMethod()
                 .AllowAnyHeader()
             );
 

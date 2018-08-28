@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Student } from '../../app/models';
+import { HttpClient } from '@angular/common/http';
+import { Student, GlobalVarible } from '../../app/models';
+import { DetailPage } from '../detail/detail';
+import { CreatePage } from '../create/create';
 
 @Component({
   selector: 'page-home',
@@ -12,10 +14,20 @@ export class HomePage {
   students: Student[];
 
   constructor(public navCtrl: NavController, private http: HttpClient) {
-    this.http.get<Student[]>("https://localhost:5001/api/Student/List")
+  }
+
+  Create() {
+    this.navCtrl.push(CreatePage);
+  }
+
+  Detail(id: string) {
+    this.navCtrl.push(DetailPage, { id: id });
+  }
+
+  ionViewDidEnter() {
+    this.http.get<Student[]>(GlobalVarible.host + "/api/Student/List")
       .subscribe(data => {
         this.students = data;
       });
   }
-
 }

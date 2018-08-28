@@ -8,11 +8,17 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { DetailPage } from '../pages/detail/detail';
+import { EditPage } from '../pages/edit/edit';
+import { CreatePage } from '../pages/create/create';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    DetailPage,
+    EditPage,
+    CreatePage,
   ],
   imports: [
     BrowserModule,
@@ -22,13 +28,16 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    DetailPage,
+    EditPage,
+    CreatePage,
   ],
   providers: [
     StatusBar,
     SplashScreen,
     HttpClient,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })
-export class AppModule {}
+export class AppModule { }

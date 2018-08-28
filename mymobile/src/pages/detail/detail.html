@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>detail</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <img src="https://cdn3.iconfinder.com/data/icons/internet-and-web-4/78/internt_web_technology-13-512.png" />
+    <ion-card-content *ngIf="student">
+      <ion-card-title>
+        {{student.name}}
+      </ion-card-title>
+      <p>
+        Age: {{student.age}}
+      </p>
+      <button ion-button block (click)="Edit()">Edit</button>
+      <button ion-button block color="danger" (click)="Delete()">Delete</button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

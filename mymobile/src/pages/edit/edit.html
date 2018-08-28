@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>edit</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list *ngIf="student">
+    <ion-item>
+      <ion-label floating>Name</ion-label>
+      <ion-input type="text" [(ngModel)]="student.name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Age</ion-label>
+      <ion-input type="number" [(ngModel)]="student.age"></ion-input>
+    </ion-item>
+  </ion-list>
+  <div padding>
+    <button ion-button block (click)="Edit()">Save</button>
+  </div>
+</ion-content>

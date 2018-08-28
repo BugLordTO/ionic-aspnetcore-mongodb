@@ -41,14 +41,14 @@ namespace myapi.Controllers
         }
 
         [HttpPost("[action]")]
-        public void Create(Student request)
+        public void Create([FromBody]Student request)
         {
             request.Id = Guid.NewGuid().ToString();
             Collection.InsertOne(request);
         }
 
         [HttpPost("[action]")]
-        public void Edit(Student request)
+        public void Edit([FromBody]Student request)
         {
             Collection.ReplaceOne(x => x.Id == request.Id, request);
         }
